@@ -15,8 +15,9 @@ namespace Tests
     {
         private string validJsonResponse;
         private string invalidJsonResponse;
+        private IOptions<TFLAccountDetails> dummySecrets;
 
-        [SetUp]
+      [SetUp]
         public void Setup()
         {
             validJsonResponse = @"[
@@ -41,6 +42,9 @@ namespace Tests
     'relativeUri': '/Road/A211',
     'message': 'The following road id is not recognised: A211'
 }";
+
+          dummySecrets = Options.Create(new TFLAccountDetails());
+
         }
 
         [Test]
@@ -58,7 +62,7 @@ namespace Tests
             };
             mockClient.Setup(r => r.SendAsync(It.IsAny<string>())).Returns(Task.FromResult(response));
 
-            IOptions<TFLAccountDetails> dummySecrets = Options.Create(new TFLAccountDetails());
+           
 
             var roadStatusService = new RoadStatusService(mockClient.Object, dummySecrets);
 
