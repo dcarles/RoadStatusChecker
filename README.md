@@ -26,7 +26,7 @@ Then from the console app project folder, go to folder: \bin\Release\netcoreapp2
 Go to Test explorer or Test menu and select Run all tests
 
 
-#### 4. How I structured my project: 
+#### 4. HOW I STRUCTURED THE PROJECT : 
 
 ##### Console App
 
